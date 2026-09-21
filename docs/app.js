@@ -1,6 +1,6 @@
 'use strict';
 
-// Atlas contract: 8 columns × 11 rows, 192 × 208 pixel cells.
+// Standard atlas: 8 × 11. Extra animation atlas: 6 × 4. Cells: 192 × 208.
 const states = [
   ['idle', 'Idle', 'Taking a breather', 'A quiet blink. Ready when you are.'],
   ['running-right', 'Run right', 'Off to a good idea', 'A little momentum goes a long way.'],
@@ -11,6 +11,10 @@ const states = [
   ['waiting', 'Waiting', 'Over to you', 'All ears for your next idea.'],
   ['running', 'Working', 'Pencil in motion', 'Making a little something together.'],
   ['review', 'Review', 'One last look', 'A careful eye for the finishing touches.'],
+  ['skateboard', 'Skateboard', 'Keep rolling', 'A little momentum. A lot of personality.'],
+  ['sunglasses', 'Sunglasses', 'Looking cool', 'Confidence looks good on a very good dog.'],
+  ['hearts', 'Love', 'Love this', 'For the ideas and people that make your day.'],
+  ['football', 'Football', 'A little airtime', 'Toss it up. Catch a little joy.'],
 ];
 const timing = [
   [280, 110, 110, 140, 140, 320],
@@ -22,6 +26,10 @@ const timing = [
   [150, 150, 150, 150, 150, 260],
   [120, 120, 120, 120, 120, 220],
   [150, 150, 150, 150, 150, 280],
+  [220, 140, 140, 140, 180, 220],
+  [300, 180, 240, 200, 240, 260],
+  [220, 180, 220, 260, 220, 220],
+  [420, 140, 130, 200, 140, 280],
 ];
 const media = matchMedia('(prefers-reduced-motion: reduce)');
 const pets = [...document.querySelectorAll('.pet')];
@@ -31,8 +39,9 @@ let paused = media.matches;
 let motionTime = 0;
 let lastTick = performance.now();
 
-function frame(el, column, row) {
-  el.style.backgroundPosition = `${column / 7 * 100}% ${row / 10 * 100}%`;
+function frame(el, column, row, extra = false) {
+  el.dataset.sheet = extra ? 'extras' : 'standard';
+  el.style.backgroundPosition = `${column / (extra ? 5 : 7) * 100}% ${row / (extra ? 3 : 10) * 100}%`;
 }
 
 function renderPets() {
@@ -46,7 +55,7 @@ function renderPets() {
   });
   for (const pet of pets) {
     const row = states.findIndex((s) => s[0] === pet.dataset.state);
-    if (row >= 0) frame(pet, columns[row], row);
+    if (row >= 0) frame(pet, columns[row], row < 9 ? row : row - 9, row >= 9);
   }
 }
 
@@ -70,8 +79,8 @@ function toggleActive(buttons, predicate) {
 }
 
 const grid = byId('animation-grid');
-grid.innerHTML = states.map(([id, label]) =>
-  `<button class="animation-option" data-state="${id}" aria-pressed="false">${label}</button>`
+grid.innerHTML = states.map(([id, label], index) =>
+  `${index === 9 ? '<span class="bonus-label">A LITTLE EXTRA</span>' : ''}<button class="animation-option${index >= 9 ? ' bonus' : ''}" data-state="${id}" aria-pressed="false">${label}</button>`
 ).join('');
 
 function selectState(id) {

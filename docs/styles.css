@@ -28,3 +28,25 @@ summary:focus-visible{outline:3px solid var(--blue);outline-offset:4px}
 @media(max-width:900px){.site-header nav{gap:17px}.site-header{gap:15px}.intro-copy{max-width:330px}}
 @media(max-width:680px){.site-header .download{font-size:12px;gap:9px}.site-header .brand{font-size:25px}.edition{font-size:17px}.brand img{width:30px;height:34px}.intro .eyebrow{max-width:290px;line-height:1.6;align-items:baseline}.intro .eyebrow span{flex-shrink:0}.stage{min-height:385px}.stage-top{gap:8px}.stage-top .label-mono{font-size:12px;letter-spacing:.2px}.intro-copy{max-width:100%}.install-details{margin-top:12px}.take-home-title h2{line-height:1.2}footer .source-link{margin-left:auto}}
 @media(max-width:360px){.site-header .download{padding:9px 7px}.site-header .brand{font-size:22px}.brand img{width:26px}.stage{padding:17px}.surface-controls{gap:7px}h1{font-size:48px}}
+
+/* Four supplemental loops share a six-column atlas. */
+.pet[data-sheet="extras"]{background-image:url('assets/archie-iii-extras.webp');background-size:600% 400%}
+.animation-grid{grid-template-columns:repeat(6,minmax(0,1fr))}
+.animation-option{grid-column:span 2}
+.animation-option.bonus{grid-column:span 3}
+.bonus-label{grid-column:1/-1;font-family:ui-monospace,monospace;font-size:12px;letter-spacing:1px;color:var(--muted);margin:12px 0 1px}
+.new-moods{padding-top:64px;scroll-margin-top:28px}
+.mood-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:18px}
+.mood-card{border:1px solid var(--line);border-radius:12px;overflow:hidden;padding:0 20px 22px;display:flex;flex-direction:column}
+.mood-art{margin:0 -20px 20px;min-height:205px;display:grid;place-items:center;background:#f4f5ef}
+.mood-card:nth-child(2) .mood-art{background:#e9efff}
+.mood-card:nth-child(3) .mood-art{background:#fff0f2}
+.mood-card:nth-child(4) .mood-art{background:#fff7df}
+.mood-card h3{font-size:22px;letter-spacing:-.6px;margin-bottom:9px}
+.mood-card p{font-size:16px;line-height:1.5;color:var(--muted);margin-bottom:20px}
+.mood-card a,.mood-pack{font-size:14px;font-weight:600;text-decoration:underline;text-underline-offset:4px}
+.mood-card a{margin-top:auto;align-self:flex-start}
+.mood-card a:hover,.mood-pack:hover{color:var(--red)}
+.mood-pack{display:inline-block;margin-top:24px;padding:7px 0}
+@media(max-width:900px){.mood-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:480px){.new-moods{padding-top:45px}.mood-grid{gap:12px}.mood-card{padding:0 14px 18px}.mood-art{margin:0 -14px 18px;min-height:175px}.mood-art .pet{--pet-size:128px!important}.mood-card h3{font-size:20px}.mood-card p{font-size:16px}.mood-card a{font-size:14px}}

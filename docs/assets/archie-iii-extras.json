@@ -1,0 +1,65 @@
+{
+  "columns": 6,
+  "rows": 4,
+  "cellWidth": 192,
+  "cellHeight": 208,
+  "spritesheet": "archie-iii-extras.webp",
+  "animations": [
+    {
+      "id": "skateboard",
+      "row": 0,
+      "frames": 6,
+      "durations": [
+        220,
+        140,
+        140,
+        140,
+        180,
+        220
+      ],
+      "gif": "archie-iii-skateboard.gif"
+    },
+    {
+      "id": "sunglasses",
+      "row": 1,
+      "frames": 6,
+      "durations": [
+        300,
+        180,
+        240,
+        200,
+        240,
+        260
+      ],
+      "gif": "archie-iii-sunglasses.gif"
+    },
+    {
+      "id": "hearts",
+      "row": 2,
+      "frames": 6,
+      "durations": [
+        220,
+        180,
+        220,
+        260,
+        220,
+        220
+      ],
+      "gif": "archie-iii-hearts.gif"
+    },
+    {
+      "id": "football",
+      "row": 3,
+      "frames": 6,
+      "durations": [
+        420,
+        140,
+        130,
+        200,
+        140,
+        280
+      ],
+      "gif": "archie-iii-football.gif"
+    }
+  ]
+}
