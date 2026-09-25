@@ -1,0 +1,54 @@
+.archie-sprite {
+  display: inline-block;
+  flex-shrink: 0;
+  background-repeat: no-repeat;
+  image-rendering: pixelated;
+  vertical-align: middle;
+  user-select: none;
+  pointer-events: none;
+}
+
+.archie-cursor { display: inline-flex; border-radius: 12px; }
+.archie-cursor:focus-visible,
+.archie-drag:focus-visible { outline: 3px solid #155e75; outline-offset: 5px; }
+
+.archie-stage {
+  position: relative;
+  width: 100%;
+  height: 320px;
+  overflow: hidden;
+  border-radius: 16px;
+  background: #f3f0e7;
+  background-image: radial-gradient(#c6c0b0 1px, transparent 1px);
+  background-size: 20px 20px;
+}
+
+.archie-drag {
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: block;
+  width: max-content;
+  padding: 0;
+  border: 0;
+  margin: 0;
+  border-radius: 12px;
+  background: transparent;
+  line-height: 0;
+  cursor: grab;
+  touch-action: none;
+  user-select: none;
+  -webkit-user-select: none;
+}
+.archie-drag--active { cursor: grabbing; }
+.archie-stage--floating {
+  position: fixed;
+  inset: 0;
+  z-index: 1000;
+  width: auto;
+  height: auto;
+  border-radius: 0;
+  background: none;
+  pointer-events: none;
+}
+.archie-stage--floating .archie-drag { pointer-events: auto; }

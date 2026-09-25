@@ -6,6 +6,14 @@ Big ears. Bigger ideas. A cheerful red robot dog and your little creative partne
 
 An interactive mascot playground with thirteen animations, adjustable size and backgrounds, inline examples, task states, a draggable desk buddy, and sixteen cursor-following look directions. Supports keyboard controls and reduced motion.
 
+## Use Archie in React
+
+**[Try the React playground](https://brendansudol.github.io/archie-iii-pet/react/)** · [Read the integration guide](react-kit/README.md) · [Download the React kit](https://brendansudol.github.io/archie-iii-pet/assets/archie-react-kit.zip)
+
+The [`react-kit`](react-kit) folder contains reusable sprite, cursor-following, and draggable components; all thirteen animation loops and sixteen look directions; the source artwork; and a runnable React example page. The guide covers animation selection, automatic cycling, loading and success states, keyboard interaction, and reduced motion.
+
+To develop the React example, run `npm ci --prefix react-kit` and `npm run dev --prefix react-kit`. To regenerate the published example and download ZIP, run `node scripts/build-react-site.mjs` from the repository root, commit the resulting files, and push to `main`.
+
 ## Local preview
 
 ```sh
